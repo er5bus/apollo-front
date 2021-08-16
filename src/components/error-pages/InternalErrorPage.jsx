@@ -1,14 +1,12 @@
-import React from "react"
-import {toAbsoluteUrl} from "./../../helpers"
-
 import { Trans } from 'react-i18next'
+import {Img} from '../controls'
 
 const InternalErrorPage = () => {
 
   return (
-    <div className="error px-10 py-10 d-flex flex-column justify-content-center align-items-center">
+    <div className="error px-10 py-10 d-flex flex-column flex-root justify-content-center align-items-center">
       <div className="d-flex justify-content-center">
-        <img alt="500" className="img-responsive" width="600" height="405" src={toAbsoluteUrl("/media/error/500.svg")} />
+        <Img alt="500" className="img-responsive" width="600" height="405" path="/media/error/500.svg" />
       </div>
       <div  className="text-center error-text py-15 py-md-5">
         <p className="display-4 font-weight-boldest text-primary mb-12">

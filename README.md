@@ -1,6 +1,6 @@
-# sm
+# Apollo
 
-Store managment application
+Learning platform
 
 ![alt text](https://github.com/er5bus/sm/blob/main/image.jpg?raw=true)
 

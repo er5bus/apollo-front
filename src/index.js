@@ -8,8 +8,9 @@
 // Import all the third party stuff
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { AnimatePresence } from "framer-motion";
 import { Provider } from 'react-redux'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch } from 'react-router-dom'
 
 // Import routes
 import { rootRoutes } from "./containers"
@@ -23,7 +24,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor } from './configureStore'
 
 // loaders
-import { SplashScreen } from './components/controls'
+import { RouteTransition, SplashScreen } from './components/controls'
 
 // toast
 import { Toaster } from 'react-hot-toast';
@@ -52,12 +53,14 @@ const ELEM = (
         <React.Suspense fallback={<SplashScreen />}>
           <BrowserRouter>
             <ErrorBoundary>
-              <Switch>
-                { rootRoutes.map((route, idx) => (
-                  <Route key={idx} { ...route } />
-                )) }
-                <Route component={NotFoundPage} />
-              </Switch>
+              <AnimatePresence exitBeforeEnter initial={true}>
+                <Switch>
+                  { rootRoutes.map((route, idx) => (
+                    <RouteTransition key={idx} { ...route } />
+                  )) }
+                  <RouteTransition component={NotFoundPage} />
+                </Switch>
+              </AnimatePresence>
             </ErrorBoundary>
           </BrowserRouter>
         </React.Suspense>
@@ -73,7 +76,7 @@ if (process.env.NODE_ENV !== 'production' && module.hot) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept(['./containers'], () => {
+  module.hot.accept(['./containers/index'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE).render(ELEM, MOUNT_NODE)
   })
 }

@@ -1,5 +1,0 @@
-export const SERVICES = "/api/services"
-export const SERVICE = "/api/services/:param"
-export const SERVICE_ACTIVATE = "/api/services/:param/activate"
-export const EXPORT_SERVICE = "/api/services/export"
-export const IMPORT_SERVICE = "/api/services/import"

@@ -7,6 +7,19 @@
 	background-color: $content-bg-color;
 }
 
+.switch-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+
 
 // Desktop mode
 @include media-breakpoint-up(lg) {

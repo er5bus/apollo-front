@@ -47,7 +47,7 @@ export const persistor = persistStore(store)
 /* istanbul ignore next */
 if (process.env.NODE_ENV !== 'production' && module.hot) {
   // This fetch the new state of the above reducers.
-  const { rootReducer: nextRootReducer } = require('./containers')
+  const { rootReducer: nextRootReducer } = require('./containers/index')
   store.replaceReducer(
     persistReducer(persistConfig, nextRootReducer)
   )

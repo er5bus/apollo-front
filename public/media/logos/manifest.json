@@ -1,6 +1,8 @@
 {
-  "short_name": "sm",
+  "short_name": "SM",
   "name": "Shop Admin panel",
+  "manifest_version": 2,
+  "version": "0.0.1",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,12 +11,12 @@
     },
     {
       "src": "logo.svg",
-      "type": "image/png",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {
       "src": "logo.svg",
-      "type": "image/png",
+      "type": "image/svg",
       "sizes": "512x512"
     }
   ],

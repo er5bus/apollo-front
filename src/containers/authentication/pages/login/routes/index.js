@@ -1,7 +1,6 @@
-import {lazy} from "react";
-
+import Login from "./../Login"
 
 export const login = {
   path: "/login",
-  component: lazy(() => import("./../Login"))
+  component: Login
 }

@@ -4,7 +4,7 @@ import { Img } from './../controls'
 const PageNotFound = () => {
 
   return (
-    <div className="error px-10 py-10 d-flex flex-column justify-content-center align-items-center">
+    <div className="error px-10 py-10 d-flex flex-column flex-root justify-content-center align-items-center">
       <div className="d-flex justify-content-center">
         <Img alt="404" className="img-responsive" width="600" height="405" path="/media/error/404.svg" />
       </div>

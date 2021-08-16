@@ -1,7 +1,7 @@
-import {lazy} from "react";
+import ForgotPassword from "./../ForgotPassword"
 
 
 export const forgotPassword = {
   path: "/forgot-password",
-  component: lazy(() => import("./../ForgotPassword"))
+  component: ForgotPassword
 }

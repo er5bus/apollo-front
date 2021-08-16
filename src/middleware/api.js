@@ -1,7 +1,6 @@
 import { CALL_API } from './../constants'
 import { makeCall, objectToFormData } from './../helpers'
 import { PURGE } from 'redux-persist'
-import { CHECK_CONNECTIVITY } from './../components/connectivity'
 
 
 const api = store => next => action => {
@@ -39,11 +38,11 @@ const api = store => next => action => {
       }
     })
     .catch(err => {
-      if (err.message === 'Network Error') {
-        next({
-          type: CHECK_CONNECTIVITY
-        })
-      }
+      //if (err.message === 'Network Error') {
+      //  next({
+      //    type: CHECK_CONNECTIVITY
+      //  })
+      //}
       if (err.response && err.response.status === 401 && auth) {
         next({
           type: PURGE,

@@ -1,11 +1,32 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Trans } from 'react-i18next'
-
+import { motion } from "framer-motion";
 import { Img } from "./../../../../components/controls"
 
 import { toAbsoluteUrl } from "../../../../helpers";
 import { APP_VERSION } from "../../../../constants";
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: "-100%"
+  },
+  in: {
+    opacity: 1,
+    x: 0
+  },
+  out: {
+    opacity: 0,
+    x: "100%"
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 1
+};
 
 
 const Layout = ({ children }) => (
@@ -15,7 +36,13 @@ const Layout = ({ children }) => (
       {/*<!--begin::Authentication - Sign-in -->*/}
       <div className="d-flex flex-column flex-lg-row flex-column-fluid">
         {/*<!--begin::Aside-->*/}
-        <div className="d-flex flex-column flex-lg-row-auto w-xl-600px aside-auth-bg">
+        <motion.div
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+          className="d-flex flex-column flex-lg-row-auto w-xl-500px aside-auth-bg">
           {/*<!--begin::Header-->*/}
           <div className="d-flex flex-column text-center p-10 pt-lg-20">
             {/*<!--begin::Logo-->*/}
@@ -28,10 +55,10 @@ const Layout = ({ children }) => (
             </a>
             {/*<!--end::Logo-->*/}
             {/*<!--begin::Title-->*/}
-            <h1 className="fw-bolder fs-2qx pb-5 pb-md-10"><Trans>Welcome to SM</Trans></h1>
+            <h1 className="fw-bolder fs-2qx pb-5 pb-md-10"><Trans>Welcome to our traning center</Trans></h1>
             {/*<!--end::Title-->*/}
             {/*<!--begin::Description-->*/}
-            <p className="fw-bold fs-2"><Trans>Discover Amazing SM <br />with great build tools</Trans></p>
+            <p className="fw-bold fs-2"><Trans>Interactive learning <br /> To help you pass your exam</Trans></p>
             {/*<!--end::Description-->*/}
           </div>
           {/*<!--end::Header-->*/}
@@ -42,7 +69,7 @@ const Layout = ({ children }) => (
               backgroundImage: `url(${toAbsoluteUrl("/media/svg/illustrations/checkout.svg")})`,
             }} />
           {/*<!--end::Illustration-->*/}
-        </div>
+        </motion.div>
         {/*<!--begin::Aside-->*/}
         {/*<!--begin::Body-->*/}
         <div className="d-flex flex-column flex-lg-row-fluid py-10">
@@ -59,9 +86,9 @@ const Layout = ({ children }) => (
           <div className="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
             {/*<!--begin::Links-->*/}
             <div className="d-flex flex-center fw-bold fs-6">
-              <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
+              <div className="text-dark-50 font-weight-bolder order-2 order-sm-1 my-2">
                 {new Date().getFullYear()} © {APP_VERSION}
-            </div>
+              </div>
             </div>
             {/*<!--end::Links-->*/}
           </div>

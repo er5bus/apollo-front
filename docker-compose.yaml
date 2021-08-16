@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  sm_dev:
+  apollo_dev:
     build:
       context: .
     volumes:
