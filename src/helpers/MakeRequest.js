@@ -40,7 +40,8 @@ export const makeCall = (baseURL, method, url, data = {}, headers = {}, params =
   const client = axios.create({
     baseURL,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'accept': 'application/json'
     }
   })
 

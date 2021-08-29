@@ -2,28 +2,16 @@ import * as Yup from "yup"
 import { fromJS } from 'immutable'
 import {INPUT} from "src/components/handle-fields"
 
-export const loginFields = fromJS([
+export const registerFields = fromJS([
   {
-    name: "firstName",
+    name: "username",
     component: INPUT,
-    placeholder: "First Name",
-    label: "First Name",
+    placeholder: "Username",
+    label: "Username",
     inputClassName: "form-control form-control-lg form-control-solid",
-    inputGroupClassName: "fv-row mb-10 fv-plugins-icon-container",
+    inputGroupClassName: "fv-row mb-5 fv-plugins-icon-container",
     type: "text",
-    size: 6,
-    validation: Yup.string().email().nullable().required()
-  },
-  {
-    name: "lastName",
-    component: INPUT,
-    placeholder: "Last Name",
-    label: "Last Name",
-    inputClassName: "form-control form-control-lg form-control-solid",
-    inputGroupClassName: "fv-row mb-10 fv-plugins-icon-container",
-    type: "text",
-    size: 6,
-    validation: Yup.string().email().nullable().required()
+    validation: Yup.string().max(100).nullable().required()
   },
   {
     name: "email",
@@ -31,9 +19,9 @@ export const loginFields = fromJS([
     placeholder: "E-mail",
     label: "E-mail",
     inputClassName: "form-control form-control-lg form-control-solid",
-    inputGroupClassName: "fv-row mb-10 fv-plugins-icon-container",
+    inputGroupClassName: "fv-row mb-5 fv-plugins-icon-container",
     type: "text",
-    validation: Yup.string().email().nullable().required()
+    validation: Yup.string().email().max(200).nullable().required()
   },
   {
     name: "password",
@@ -41,8 +29,8 @@ export const loginFields = fromJS([
     placeholder: "Password",
     label: "Password",
     inputClassName: "form-control form-control-lg form-control-solid",
-    inputGroupClassName: "fv-row mb-10 fv-plugins-icon-container",
+    inputGroupClassName: "fv-row mb-5 fv-plugins-icon-container",
     type: "password",
-    validation: Yup.string().nullable().required()
+    validation: Yup.string().nullable().max(64).required()
   }
 ])

@@ -17,10 +17,28 @@ export const login = (payload) =>
         success: ACTIONS.LOGIN_SUCCEDED,
         fail: ACTIONS.LOGIN_FAILED
       },
+      isFormData: true,
       endpoint: ENDPOINTS.LOGIN,
       method: HTTP_METHODS.POST
     }
   })
+
+
+export const register = (payload) =>
+  ({
+    type: CALL_API,
+    payload,
+    meta: {
+      actions: {
+        init: ACTIONS.REGISTER_INIT,
+        success: ACTIONS.REGISTER_SUCCEDED,
+        fail: ACTIONS.REGISTER_FAILED
+      },
+      endpoint: ENDPOINTS.REGISTER,
+      method: HTTP_METHODS.POST
+    }
+  })
+
 
 
 export const forgotPassword = (payload) =>

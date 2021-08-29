@@ -18,6 +18,7 @@ export const ToastSuccess = ({ condition, message, onClose=f=>f }) => {
     if (condition === true){
       onClose()
       toast.success(message, {
+        duration: 4000,
         style: {
           border: '1px solid #009EF7',
           padding: '16px',
@@ -42,6 +43,7 @@ export const ToastError = ({ error, defaultMessage="Something went wrong. Please
   useEffect(() => {
     if (!isNull(error)){
       toast.error(defaultMessage, {
+        duration: 4000,
         style: {
           border: '1px solid #f85365',
           padding: '16px',

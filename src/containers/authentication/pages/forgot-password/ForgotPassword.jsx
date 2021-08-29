@@ -15,7 +15,7 @@ const ForgotPassword = () => {
   const { isLoading, error, success } = useSelector((state) => ({
     isLoading: state.common.auth.isLoading,
     error: state.common.auth.error,
-    success: state.common.success
+    success: state.common.auth.success
   }), isEqual)
 
   const onSubmit = (values) => {

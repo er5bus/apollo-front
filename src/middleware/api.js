@@ -1,4 +1,4 @@
-import { CALL_API } from './../constants'
+import { CALL_API, API_BASE_URL } from './../constants'
 import { makeCall, objectToFormData } from './../helpers'
 import { PURGE } from 'redux-persist'
 
@@ -7,6 +7,8 @@ const api = store => next => action => {
   if (!action || !action.type || action.type !== CALL_API) {
     return next(action)
   }
+
+  console.log(action)
 
   const { actions, endpoint, method, auth, params = {}, isFormData = false, returnResponse = false, extra = {}, headers = {} } = action.meta
   const { token } = store.getState().common.auth || {}
@@ -29,7 +31,7 @@ const api = store => next => action => {
   }
 
   // make the request
-  makeCall(method, endpoint, payload, headers, params, extra)
+  makeCall(API_BASE_URL, method, endpoint, payload, headers, params, extra)
     .then(resp => {
       if (returnResponse) {
         dispatch(actions.success, resp)
@@ -43,6 +45,7 @@ const api = store => next => action => {
       //    type: CHECK_CONNECTIVITY
       //  })
       //}
+      console.log(err)
       if (err.response && err.response.status === 401 && auth) {
         next({
           type: PURGE,

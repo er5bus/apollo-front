@@ -3,22 +3,23 @@ import { isEqual } from 'lodash'
 import { Trans } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { login, clearError } from './../../store/actions'
-import { ToastError } from './../../../../components/controls'
-import {loginFields} from './helpers'
+import { register, clearError } from './../../store/actions'
+import { ToastError, ToastSuccess } from './../../../../components/controls'
+import { registerFields} from './helpers'
 import {Form} from 'src/components/handle-fields'
 import {Button} from 'react-bootstrap'
 import pageRoutes from './..'
 
 const Login = () => {
   const dispatch = useDispatch()
-  const { error, isLoading } = useSelector((state) => ({
+  const { error, isLoading, success } = useSelector((state) => ({
     error: state.common.auth.error,
-    isLoading: state.common.auth.isLoading
+    isLoading: state.common.auth.isLoading,
+    success: state.common.auth.success
   }), isEqual)
 
   const onSubmit = (values) => {
-    dispatch(login(values))
+    dispatch(register(values))
   }
 
   return (
@@ -33,9 +34,15 @@ const Login = () => {
         error={error}
         onClose={() => dispatch(clearError())}
       />
+      <ToastSuccess
+          condition={success}
+          message={<Trans>Your account has been createed successfully, Check your email for activation link. If it doesn’t appear within a few minutes, check your spam folder.</Trans>}
+          onClose={() => dispatch(clearError())}
+        />
       <Form
         onSubmit={onSubmit}
-        fields={loginFields}
+        fields={registerFields}
+        clearFileds={success}
         className='form w-100 fv-plugins-bootstrap5 fv-plugins-framework'
       >
         <div className='form-group d-flex flex-wrap justify-content-between align-items-center'>

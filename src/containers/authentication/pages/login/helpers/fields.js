@@ -4,14 +4,14 @@ import {INPUT} from "src/components/handle-fields"
 
 export const loginFields = fromJS([
   {
-    name: "email",
+    name: "username",
     component: INPUT,
-    placeholder: "E-mail",
-    label: "E-mail",
+    placeholder: "Username",
+    label: "Username",
     inputClassName: "form-control form-control-lg form-control-solid",
     inputGroupClassName: "fv-row mb-10 fv-plugins-icon-container",
     type: "text",
-    validation: Yup.string().email().nullable().required()
+    validation: Yup.string().nullable().required()
   },
   {
     name: "password",
