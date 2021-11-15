@@ -1,6 +1,6 @@
 /* eslint-disable no-script-url,jsx-a11y/anchor-is-valid */
 import { useHistory } from "react-router"
-import { Svg } from "../../../../../../components/controls"
+import { Svg } from "src/components/controls"
 
 
 const HeaderMenu = () => {

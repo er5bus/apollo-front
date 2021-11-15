@@ -1,22 +1,17 @@
-import React, {useEffect} from "react"
-import {useDispatch, useSelector} from "react-redux"
-import { isEqual } from 'lodash'
+import {useEffect} from "react"
+import { useDispatch } from "react-redux"
 import { Trans } from 'react-i18next'
-import {ToastError} from "src/components/controls/Toast"
-import {resetPasswordFields} from './helpers'
-import {Form} from 'src/components/handle-fields'
-import {Button} from 'react-bootstrap'
-
-import { resetPassword, fetchToken, clearError } from "./../../store/actions"
+import { resetPasswordFields } from './helpers'
+import { Form } from 'src/components/form'
+import { Button } from 'react-bootstrap'
+import { resetPassword, fetchToken } from "src/store/actions"
+import { useRequestStatus } from "src/store/hooks"
 
 
 const ResetPassword = ({ match: { params } }) => {
 
   const dispatch = useDispatch()
-  const { error, isLoading } = useSelector((state) => ({
-    error: state.common.auth.error,
-    isLoading: state.common.auth.isLoading
-  }), isEqual)
+  const { isLoading } = useRequestStatus()
 
   useEffect(() => {
     dispatch(fetchToken(params))
@@ -36,10 +31,6 @@ const ResetPassword = ({ match: { params } }) => {
         <Trans>Enter your new password.</Trans>
       </div>
     </div>
-    <ToastError
-      error={error}
-      onClose={() => dispatch(clearError())}
-    />
     <Form
       onSubmit={onSubmit}
       fields={resetPasswordFields}

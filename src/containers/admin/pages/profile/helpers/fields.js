@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 import { fromJS } from 'immutable'
-import { INPUT } from 'src/components/handle-fields'
+import { INPUT } from 'src/components/form'
 
 // Validation schema
 export const accountInformationFields = fromJS([
@@ -104,7 +104,7 @@ export const personalInformationFields = fromJS([
 ])
 
 
-export const accountDisplayFields = fromJS([
+export const accountOverviewFields = fromJS([
   {
     name: "user.firstName",
     label: "First name",

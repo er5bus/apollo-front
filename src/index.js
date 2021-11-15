@@ -10,10 +10,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AnimatePresence } from "framer-motion";
 import { Provider } from 'react-redux'
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom'
 
 // Import routes
-import { rootRoutes } from "./containers"
+import { routes , default as defaultRoute } from "./containers/rootRoute"
 
 //import { Offline, Online } from './components/connectivity'
 
@@ -21,7 +21,7 @@ import { rootRoutes } from "./containers"
 import { PersistGate } from 'redux-persist/integration/react'
 
 // store
-import { store, persistor } from './configureStore'
+import { store, persistor } from './store/configureStore'
 
 // loaders
 import { RouteTransition, SplashScreen } from './components/controls'
@@ -55,9 +55,10 @@ const ELEM = (
             <ErrorBoundary>
               <AnimatePresence exitBeforeEnter initial={true}>
                 <Switch>
-                  { rootRoutes.map((route, idx) => (
+                  { routes.map((route, idx) => (
                     <RouteTransition key={idx} { ...route } />
                   )) }
+                  <Redirect from="/" to={ defaultRoute.path } />
                   <RouteTransition component={NotFoundPage} />
                 </Switch>
               </AnimatePresence>
@@ -76,7 +77,8 @@ if (process.env.NODE_ENV !== 'production' && module.hot) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept(['./containers/index'], () => {
+  module.hot.accept('./store/reducers', () => {
+    //ReactDOM.render(ELEM, MOUNT_NODE)
     ReactDOM.unmountComponentAtNode(MOUNT_NODE).render(ELEM, MOUNT_NODE)
   })
 }

@@ -1,6 +1,7 @@
 export * from './Toast'
 export * from './Card'
 
+export { default as ViewCard } from './ViewCard'
 export { default as FormCard } from './FormCard'
 export { default as Img } from './Img'
 export { default as Svg } from './Svg'

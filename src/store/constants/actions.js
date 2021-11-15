@@ -1,0 +1,42 @@
+export const CLEAR_ERROR = "common@CLEAR_ERROR"
+
+export const SEND_REQUEST_INIT = "sendRequest@INIT"
+export const SEND_REQUEST_FAILED = "sendRequest@FAILED"
+
+export const LOGIN_SUCCEDED =  "authentication@LOGIN_SUCCEDED"
+
+export const REGISTER_SUCCEDED = "authentication@REGISTER_SUCCEDED"
+
+export const FORGOT_PASSWORD_SUCCEDED = "authentication@FORGOT_PASSWORD_SUCCEDED"
+
+export const FETCH_TOKEN_SUCCEDED = "authentication@FETCH_TOKEN_SUCCEDED"
+
+export const UPDATE_PERSONAL_INFORMATION_SUCCEDED = "profile@UPDATE_PERSONAL_INFORMATION_SUCCEDED"
+
+export const RESET_PASSWORD_SUCCEDED = "authentication@RESET_PASSWORD_SUCCEDED"
+
+export const LOGOUT_SUCCEDED = "authentication@LOGOUT_SUCCEDED"
+
+export const UPDATE_ACCOUNT_INFORMATION_SUCCEDED =  "profile@UPDATE_ACCOUNT_INFORMATION_SUCCEDED"
+
+export const CHANGE_PASSWORD_SUCCEDED = "profile@CHANGE_PASSWORD_SUCCEDED"
+
+export const FETCH_USER_SUCCEDED = "profile@FETCH_USER_SUCCEDED"
+
+export const FETCH_SUCCEDED = "entity@FETCH_SUCCEDED"
+
+export const CLEAR_ENTITY = "entity@CLEAR_ENTITY"
+
+export const CREATE_SUCCEDED = "entity@CREATE_SUCCEDED"
+
+export const ACTION_SUCCEDED = "entity@ACTION_SUCCEDED"
+
+export const EDIT_SUCCEDED = "entity@EDIT_SUCCEDED"
+
+export const ENABLE_SUCCEDED = "entity@ENABLE_SUCCEDED"
+
+export const DISABLE_SUCCEDED = "entity@DISABLE_SUCCEDED"
+
+export const DELETE_SUCCEDED = "entity@DELETE_SUCCEDED"
+
+export const SOFT_DELETE_SUCCEDED = "entity@SOFT_DELETE_SUCCEDED"

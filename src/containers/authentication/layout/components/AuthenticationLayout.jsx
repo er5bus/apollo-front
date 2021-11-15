@@ -2,10 +2,11 @@
 import React from "react";
 import { Trans } from 'react-i18next'
 import { motion } from "framer-motion";
-import { Img } from "./../../../../components/controls"
+import { Img } from "src/components/controls"
 
-import { toAbsoluteUrl } from "../../../../helpers";
-import { APP_VERSION } from "../../../../constants";
+import { toAbsoluteUrl } from "src/helpers";
+import { APP_VERSION } from "src/store/constants";
+
 
 const pageVariants = {
   initial: {
@@ -66,7 +67,7 @@ const Layout = ({ children }) => (
           <div
             className="d-flex flex-row-fluid bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-size-lg-auto bgi-position-y-bottom min-h-100px min-h-lg-350px"
             style={{
-              backgroundImage: `url(${toAbsoluteUrl("/media/svg/illustrations/checkout.svg")})`,
+              backgroundImage: `url(${toAbsoluteUrl("/media/svg/illustrations/auth.svg")})`,
             }} />
           {/*<!--end::Illustration-->*/}
         </motion.div>

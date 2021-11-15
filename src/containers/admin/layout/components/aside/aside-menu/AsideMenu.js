@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom"
-import {Svg} from "../../../../../../components/controls"
+import {Svg} from "src/components/controls"
 
 const AsideMenuItem = ({ item }) => {
   return (

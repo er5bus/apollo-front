@@ -1,6 +1,6 @@
 import {lazy} from "react";
 
 export const dashboard = {
-  path: "dashboard",
+  path: "/dashboard",
   component: lazy(() => import("./../Dashboard"))
 }

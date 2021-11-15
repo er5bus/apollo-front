@@ -1,33 +1,34 @@
-import { useSelector, shallowEqual, /*useDispatch*/ } from "react-redux"
+import { useSelector, shallowEqual, useDispatch } from "react-redux"
 import { Trans } from "react-i18next"
 
-//import routes from "./.."
-//import { fetchUser } from "./store/actions"
-
-//import AccountInformationDisplay from "./components/display/AccountInformationDisplay"
-//import {useEffect} from "react"
+//import routes from "./../routes"
+import { fetchUser } from "src/store/actions"
+import {useEffect} from "react"
 import {ObjectPath, Svg, UserAvatar} from "src/components/controls"
+import {Menu} from "src/components/menu"
 
-import {Menu} from "src/components/handle-fields"
 import {profileMenu} from "./helpers"
+import {useSubheader} from "../../layout/components/header/sub-header"
 
 
 const AccountInformation = () => {
   // Subheader
-  //const subheader = useSubheader()
-  //const dispatch = useDispatch()
+  const subheader = useSubheader()
+  const dispatch = useDispatch()
 
-  ///useEffect(() => {
-  //  subheader.push(<Trans> Profile </Trans>)
-  //}, [])
+  useEffect(() => {
+    subheader.push(<Trans> Profile </Trans>)
+  }, [])
 
-  //useEffect(() => {
-  //   dispatch(fetchUser())
-  //}, [])
+  useEffect(() => {
+    dispatch(fetchUser())
+
+    // eslint-disable-next-line
+  }, [])
 
   const { account } = useSelector(
     (state) => ({
-      account: {}, //state.admin.profile.account,
+      account: state.admin.profile.account,
     }),
     shallowEqual
   )

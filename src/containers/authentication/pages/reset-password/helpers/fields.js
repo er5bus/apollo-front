@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import {INPUT} from "src/components/handle-fields"
+import {INPUT} from "src/components/form"
 
 
 

@@ -1,9 +1,9 @@
-import {changeAccountPassword} from "../../store/actions"
-import { Trans } from "react-i18next"
+import {changeAccountPassword} from "src/store/actions"
+import {Trans} from "react-i18next"
 import {useDispatch, useSelector, shallowEqual} from "react-redux"
 import {FormCard} from "src/components/controls"
+import {Form} from "src/components/form"
 import {changePasswordFields} from "../../helpers"
-import {Form} from "src/components/handle-fields"
 
 
 const ChangePassword = () => {
@@ -16,8 +16,8 @@ const ChangePassword = () => {
 
   const { isLoading } = useSelector(
     (state) => ({
-      account: {},//state.admin.profile.account,
-      isLoading: true //state.admin.profile.isLoading
+      account: state.admin.profile.account,
+      isLoading: state.admin.profile.isLoading
     }),
     shallowEqual
   )

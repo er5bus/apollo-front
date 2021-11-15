@@ -4,7 +4,7 @@ export const profileMenu = [
   {
     label: "Overview",
     path: "overview",
-    component: lazy(() => import("../components/forms/PersonalInformation"))
+    component: lazy(() => import("../components/display/Overview"))
   },
   {
     label: "Personal information",

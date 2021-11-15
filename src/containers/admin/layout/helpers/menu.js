@@ -1,45 +1,49 @@
 import { fromJS } from "immutable"
+import routes from "../../pages/routes"
 
 
 export const aside = fromJS([
   {
-    title: "Dashbord",
+    title: "Dashboard",
     icon: "/media/icons/duotone/Ecommerce/Shop.svg",
-    url: "routes.path.dashbord"
+    url: routes.dashboard.path
   },
   {
-    title: "Stock",
+    title: "Classe managment",
+  },
+  {
+    title: "Level",
     icon: "/media/icons/duotone/Business/Archive.svg",
     url: "routes.path.stock"
   },
   {
-    title: "Product managment",
-  },
-  {
-    title: "Product",
+    title: "Section",
     icon: "/media/icons/duotone/Ecommerce/Shopping-Basket.svg",
     url: "routes.path.product"
   },
   {
-    title: "Category",
+    title: "Classe",
     icon: "/media/icons/duotone/Ecommerce/Filter.svg",
     url: "routes.path.category"
   },
   {
-    title: "Tags",
+    title: "Courses managment",
+  },
+  {
+    title: "Course",
     icon: "/media/icons/duotone/Ecommerce/Shopping-Tag.svg",
     url: "routes.path.tags"
   },
   {
-    title: "Store managment",
+    title: "User managment",
   },
   {
-    title: "Delivery form",
+    title: "User",
     icon: "/media/icons/duotone/Ecommerce/Shopping-Cart.svg",
     url: "routes.path.sell"
   },
   {
-    title: "Good buy",
+    title: "Group",
     icon: "/media/icons/duotone/Ecommerce/Delivery-Truck.svg",
     url: "routes.path.buy"
   },

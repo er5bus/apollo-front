@@ -1,22 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Trans } from 'react-i18next'
-import { isEqual } from 'lodash'
-import { forgotPassword, clearError } from './../../store/actions'
-import { ToastError, ToastSuccess } from 'src/components/controls'
-import {forgotPasswordFields} from './helpers'
-import {Form} from 'src/components/handle-fields'
-import {Link} from 'react-router-dom'
-import {Button} from 'react-bootstrap'
-import pageRoutes from './..'
+import { forgotPassword } from 'src/store/actions'
+import { ToastSuccess } from 'src/components/controls'
+import { forgotPasswordFields } from './helpers'
+import { Form } from 'src/components/form'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
+import { useRequestStatus } from 'src/store/hooks'
+import pageRoutes from './../routes'
 
 const ForgotPassword = () => {
   const dispatch = useDispatch()
 
-  const { isLoading, error, success } = useSelector((state) => ({
-    isLoading: state.common.auth.isLoading,
-    error: state.common.auth.error,
-    success: state.common.auth.success
-  }), isEqual)
+  const { isLoading } = useRequestStatus()
 
   const onSubmit = (values) => {
     dispatch(forgotPassword(values))
@@ -33,14 +29,9 @@ const ForgotPassword = () => {
           </div>
         </div>
         {/* <!--end::Heading--> */}
-        <ToastError
-          error={error}
-          onClose={() => dispatch(clearError())}
-        />
         <ToastSuccess
-          condition={success}
+          condition="isSent"
           message={<Trans>Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder.</Trans>}
-          onClose={() => dispatch(clearError())}
         />
         <Form
           onSubmit={onSubmit}

@@ -1,25 +1,27 @@
-import React, {Component} from "react"
-import {connect} from "react-redux"
-import {Redirect} from "react-router-dom"
-
+import { useEffect } from "react"
+import { isEqual } from "lodash"
+import { useDispatch, useSelector } from "react-redux"
+import { Redirect } from "react-router-dom"
+import { SplashScreen } from "src/components/controls"
+import { logout } from "src/store/actions"
 import routes from "./../routes"
-//import {LayoutSplashScreen} from "../../../components/layout"
 
-import { logout } from "./../store/actions"
 
-class Logout extends Component {
-  
-  componentDidMount() {
-    this.props.logout()
-  }
+const Logout = () => {
 
-  render() {
-    const { isAuthenticated } = this.props
-    return null
-    // ? <LayoutSplashScreen /> : <Redirect to={routes.login.path} />
-  }
+  const dispatch = useDispatch()
+
+  const { isAuthenticated } = useSelector((state) => state.common.auth.toObject(), isEqual )
+
+  useEffect( () => {
+    if (isAuthenticated){
+      dispatch(logout())
+    }
+
+    // eslint-disable-next-line
+  }, [isAuthenticated])
+
+  return isAuthenticated ? <SplashScreen /> : <Redirect to={routes.login.path} />
 }
 
-const mapStateToProps = (state) => state.common
-
-export default connect(mapStateToProps, { logout })(Logout)
+export default Logout

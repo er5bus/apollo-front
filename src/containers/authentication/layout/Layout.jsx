@@ -1,11 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Switch, Redirect, withRouter} from "react-router-dom"
-import pageRoutes from "../pages"
+import {useEffect} from "react"
+import { Switch, Redirect, withRouter, useHistory} from "react-router-dom"
+import { useCurrentUser } from "src/store/hooks"
+
+import layoutRoute from "../../admin/layoutRoute"
+import pageRoutes from "../pages/routes"
 
 import AuthenticationLayout from "./components/AuthenticationLayout"
 import RouteTransition from "./components/RouteTransition"
 
 const BaseLayout = () => {
+
+  const { isAuthenticated } = useCurrentUser()
+  const history = useHistory()
+
+  useEffect(() => {
+    if (isAuthenticated){
+      history.push(layoutRoute.path)
+    }
+
+    // eslint-disable-next-line
+  }, [isAuthenticated])
 
   return (
     <AuthenticationLayout>

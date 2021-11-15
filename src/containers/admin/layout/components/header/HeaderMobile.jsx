@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Img } from '../../../../../components/controls'
+import { Img } from 'src/components/controls'
 
 const HeaderMobile = () => {
   return (

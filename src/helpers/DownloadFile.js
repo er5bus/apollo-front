@@ -1,6 +1,6 @@
-import { HTTP_METHODS } from "./../constants"
+import { HTTP_METHODS } from "src/store/constants"
 import { makeCall } from "./MakeRequest"
-import { store } from "./../configureStore"
+import { store } from "src/store/configureStore"
 
 export const sendDownloadRequest = (endpoint, params, filename, payload={}, headers={}, method=HTTP_METHODS.GET) => {
   

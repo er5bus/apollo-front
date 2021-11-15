@@ -1,21 +1,17 @@
-import React from 'react'
-import { isEqual } from 'lodash'
 import { Trans } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { login, clearError } from './../../store/actions'
-import { ToastError } from './../../../../components/controls'
-import {loginFields} from './helpers'
-import {Form} from 'src/components/handle-fields'
-import {Button} from 'react-bootstrap'
-import pageRoutes from './..'
+import { login } from 'src/store/actions'
+import { loginFields } from './helpers'
+import { Form } from 'src/components/form'
+import { Button } from 'react-bootstrap'
+import pageRoutes from './../routes'
+import { useRequestStatus } from 'src/store/hooks'
 
 const Login = () => {
   const dispatch = useDispatch()
-  const { error, isLoading } = useSelector((state) => ({
-    error: state.common.auth.error,
-    isLoading: state.common.auth.isLoading
-  }), isEqual)
+
+  const { isLoading } = useRequestStatus()
 
   const onSubmit = (values) => {
     dispatch(login(values))
@@ -29,10 +25,6 @@ const Login = () => {
           <Link to={pageRoutes.register.path} className='link-primary fw-bolder'><Trans> create an account</Trans></Link>
         </div>
       </div>
-      <ToastError
-        error={error}
-        onClose={() => dispatch(clearError())}
-      />
       <Form
         onSubmit={onSubmit}
         fields={loginFields}
